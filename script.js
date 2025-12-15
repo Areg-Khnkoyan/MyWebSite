@@ -1,52 +1,50 @@
 /* SCROLL REVEAL */
 const reveals = document.querySelectorAll(".reveal");
-
 window.addEventListener("scroll", () => {
   reveals.forEach(el => {
     const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      el.classList.add("active");
-    }
+    if (top < window.innerHeight - 100) el.classList.add("active");
   });
 });
 
-/* COUNTERS */
+/* Lively COUNTERS */
 const counters = document.querySelectorAll(".counter");
 
 counters.forEach(counter => {
-  const update = () => {
+  const animate = () => {
     const target = +counter.dataset.target;
-    const current = +counter.innerText;
-    const increment = target / 200;
+    let current = 0;
+    const duration = 2000; // 2 seconds
+    const stepTime = Math.abs(Math.floor(duration / target));
 
-    if (current < target) {
-      counter.innerText = Math.ceil(current + increment);
-      setTimeout(update, 20);
-    } else {
-      counter.innerText = target;
-    }
+    const step = () => {
+      current += Math.ceil(target / 100);
+      if (current > target) current = target;
+      counter.innerText = current;
+      if (current < target) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
   };
-  update();
+  animate();
 });
 
 /* DARK MODE BUTTON */
 const themeBtn = document.getElementById("themeToggle");
-
 themeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-  themeBtn.textContent = 
+  themeBtn.textContent =
     document.body.classList.contains("dark")
     ? "☀️ Light Mode"
     : "🌙 Dark Mode";
 });
 
-/* SMOOTH SCROLL FOR ALL ANCHORS */
+/* SMOOTH SCROLL */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute("href"));
     if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
 });
