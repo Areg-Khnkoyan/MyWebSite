@@ -194,3 +194,14 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+.secondary {
+  margin-top: 15px;
+  background: transparent;
+  border: 2px solid white;
+  box-shadow: none;
+}
+
+.secondary:hover {
+  background: white;
+  color: var(--sdg8);
+}
