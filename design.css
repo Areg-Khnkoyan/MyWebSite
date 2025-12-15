@@ -1,66 +1,141 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SDG 8 – Decent Work</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content fade-in">
-      <h1>SDG 8</h1>
-      <p>Decent Work & Economic Growth</p>
-      <button>Explore</button>
-    </div>
-  </section>
+/* Colors */
+:root {
+  --sdg8: #a21942;
+  --dark: #222;
+  --light: #f4f4f4;
+}
 
-  <!-- About Section -->
-  <section class="section slide-up">
-    <h2>About SDG 8</h2>
-    <p>
-      SDG 8 focuses on promoting inclusive and sustainable economic growth,
-      employment, and decent work for all.  
-      <span class="placeholder">[Add your content here]</span>
-    </p>
-  </section>
+/* Body */
+body {
+  background: var(--light);
+  color: var(--dark);
+}
 
-  <!-- Cards Section -->
-  <section class="cards">
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("images/hero.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    <div class="card zoom-in">
-      <img src="images/placeholder1.png" alt="Work" />
-      <h3>Decent Work</h3>
-      <p>Fair wages, safe environments, and opportunities for everyone.</p>
-    </div>
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
 
-    <div class="card zoom-in">
-      <img src="images/placeholder2.png" alt="Growth" />
-      <h3>Economic Growth</h3>
-      <p>Sustainable development that benefits communities globally.</p>
-    </div>
+.hero-content {
+  position: relative;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
 
-    <div class="card zoom-in">
-      <img src="images/placeholder3.png" alt="Innovation" />
-      <h3>Innovation</h3>
-      <p>Skills, creativity, and entrepreneurship drive progress.</p>
-    </div>
+.hero h1 {
+  font-size: 4rem;
+  letter-spacing: 3px;
+}
 
-  </section>
+.hero p {
+  margin: 15px 0;
+  font-size: 1.3rem;
+}
 
-  <!-- Call to Action -->
-  <section class="cta fade-in">
-    <h2>Get Involved</h2>
-    <p>[Add your message here]</p>
-    <button>Take Action</button>
-  </section>
+.hero button {
+  padding: 12px 25px;
+  border: none;
+  background: var(--sdg8);
+  color: white;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
 
-  <footer>
-    <p>© 2025 SDG 8 Project</p>
-  </footer>
+.hero button:hover {
+  transform: scale(1.1);
+}
 
-</body>
-</html>
+/* SECTIONS */
+.section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.section h2 {
+  color: var(--sdg8);
+  margin-bottom: 15px;
+}
+
+.placeholder {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 60px 40px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transition: transform 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+/* CTA */
+.cta {
+  background: var(--sdg8);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: white;
+  color: var(--sdg8);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* AN*
