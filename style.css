@@ -6,12 +6,14 @@ html { scroll-behavior: smooth; }
   --bg: #f5f5f5;
   --text: #222;
   --card: #ffffff;
+  --decor: #ff6f91;
 }
 
 body.dark {
   --bg: #121212;
   --text: #f1f1f1;
   --card: #1f1f1f;
+  --decor: #f06292;
 }
 
 body {
@@ -48,13 +50,13 @@ body {
 /* HERO */
 .hero {
   height: 100vh;
-  background: url("images/hero.jpg") center/cover no-repeat;
+  background: url("images/hero.jpg") center/cover no-repeat fixed;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  perspective: 2px; /* for subtle parallax */
+  perspective: 2px;
 }
 
 .overlay {
@@ -178,6 +180,35 @@ body.dark .impact {
   transform: translateY(-10px) scale(1.03);
 }
 
+/* SUBTITLE DECORATIONS */
+.subtitle {
+  position: relative;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  display: inline-block;
+  cursor: default;
+}
+
+.subtitle-decor {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--decor);
+  animation: decorBounce 2s infinite alternate;
+}
+
+@keyframes decorBounce {
+  0% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+  100% { transform: translateX(-50%) translateY(0); }
+}
+
 /* QUOTE */
 .quote {
   padding: 90px 30px;
@@ -217,29 +248,9 @@ footer {
   animation: floatY 8s ease-in-out infinite alternate;
 }
 
-.shape1 {
-  width: 200px;
-  height: 200px;
-  background: var(--sdg8);
-  top: 100px;
-  left: 50px;
-}
-
-.shape2 {
-  width: 150px;
-  height: 150px;
-  background: #f06292;
-  top: 300px;
-  right: 100px;
-}
-
-.shape3 {
-  width: 100px;
-  height: 100px;
-  background: #ffab91;
-  bottom: 150px;
-  left: 200px;
-}
+.shape1 { width: 200px; height: 200px; background: var(--sdg8); top: 100px; left: 50px; }
+.shape2 { width: 150px; height: 150px; background: #f06292; top: 300px; right: 100px; }
+.shape3 { width: 100px; height: 100px; background: #ffab91; bottom: 150px; left: 200px; }
 
 @keyframes floatY {
   0% { transform: translateY(0px); }
