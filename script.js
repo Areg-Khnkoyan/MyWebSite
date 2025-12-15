@@ -35,3 +35,10 @@ const toggle = document.getElementById("darkToggle");
 toggle.addEventListener("change", () => {
   document.body.classList.toggle("dark");
 });
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute("href"))
+      .scrollIntoView({ behavior: "smooth" });
+  });
+});
