@@ -1,70 +1,59 @@
-/* SCROLL REVEAL */
-const reveals = document.querySelectorAll(".reveal");
-window.addEventListener("scroll", () => {
-  reveals.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) el.classList.add("active");
-  });
-});
+// Smooth scroll for Explore button
+document.querySelector(".btn-explore").addEventListener("click", (e) => {
+  e.preventDefault();
+  const targetId = e.target.getAttribute("href").slice(1);
+  const targetSection = document.getElementById(targetId);
 
-/* LIVELY COUNTERS */
-const counters = document.querySelectorAll(".counter");
-counters.forEach(counter => {
-  const animate = () => {
-    const target = +counter.dataset.target;
-    let current = 0;
-    const duration = 2000;
-    const step = () => {
-      current += Math.ceil(target / 100);
-      if (current > target) current = target;
-      counter.innerText = current;
-      if (current < target) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  animate();
-});
-
-/* DARK MODE BUTTON */
-const themeBtn = document.getElementById("themeToggle");
-themeBtn.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-  themeBtn.textContent =
-    document.body.classList.contains("dark")
-    ? "☀️ Light Mode"
-    : "🌙 Dark Mode";
-});
-
-/* FLOATING SMOOTH SCROLL FOR ANCHORS */
-function smoothScroll(target, duration = 1200) {
-  const start = window.scrollY;
-  const end = target.getBoundingClientRect().top + window.scrollY;
-  const distance = end - start;
-  let startTime = null;
-
-  function animation(currentTime) {
-    if (!startTime) startTime = currentTime;
-    const timeElapsed = currentTime - startTime;
-    const progress = Math.min(timeElapsed / duration, 1);
-
-    const ease = progress < 0.5
-      ? 2 * progress * progress
-      : -1 + (4 - 2 * progress) * progress;
-
-    window.scrollTo(0, start + distance * ease);
-
-    if (timeElapsed < duration) {
-      requestAnimationFrame(animation);
-    }
+  if (targetSection) {
+    // Use window.scroll with smooth behavior
+    targetSection.scrollIntoView({ behavior: "smooth" });
   }
-
-  requestAnimationFrame(animation);
-}
-
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) smoothScroll(target, 1200);
-  });
 });
+
+// Animated counters
+const counters = document.querySelectorAll(".counter");
+
+counters.forEach((counter) => {
+  const updateCount = () => {
+    const target = +counter.getAttribute("data-target");
+    const count = +counter.innerText;
+
+    const increment = target / 200; // Speed control
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + increment);
+      setTimeout(updateCount, 10);
+    } else {
+      counter.innerText = target; // Ensure it finishes exactly at target
+    }
+  };
+  updateCount();
+});
+
+// Dark mode toggle
+const themeToggle = document.getElementById("themeToggle");
+
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  if (document.body.classList.contains("dark")) {
+    themeToggle.textContent = "☀️ Light Mode";
+  } else {
+    themeToggle.textContent = "🌙 Dark Mode";
+  }
+});
+
+// Reveal animation on scroll
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealOnScroll = () => {
+  const windowHeight = window.innerHeight;
+  revealElements.forEach((el) => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+};
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
