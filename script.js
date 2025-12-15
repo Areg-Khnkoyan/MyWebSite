@@ -7,9 +7,8 @@ window.addEventListener("scroll", () => {
   });
 });
 
-/* Lively COUNTERS */
+/* LIVELY COUNTERS */
 const counters = document.querySelectorAll(".counter");
-
 counters.forEach(counter => {
   const animate = () => {
     const target = +counter.dataset.target;
@@ -38,8 +37,8 @@ themeBtn.addEventListener("click", () => {
     : "🌙 Dark Mode";
 });
 
-// FLOATING SCROLL FUNCTION
-function smoothScroll(target, duration = 1000) {
+/* FLOATING SMOOTH SCROLL FOR ANCHORS */
+function smoothScroll(target, duration = 1200) {
   const start = window.scrollY;
   const end = target.getBoundingClientRect().top + window.scrollY;
   const distance = end - start;
@@ -49,7 +48,7 @@ function smoothScroll(target, duration = 1000) {
     if (!startTime) startTime = currentTime;
     const timeElapsed = currentTime - startTime;
     const progress = Math.min(timeElapsed / duration, 1);
-    // easeInOutQuad for smooth acceleration/deceleration
+
     const ease = progress < 0.5
       ? 2 * progress * progress
       : -1 + (4 - 2 * progress) * progress;
@@ -64,11 +63,10 @@ function smoothScroll(target, duration = 1000) {
   requestAnimationFrame(animation);
 }
 
-// APPLY TO ALL ANCHORS
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
     const target = document.querySelector(this.getAttribute("href"));
-    if (target) smoothScroll(target, 1200); // 1.2s duration
+    if (target) smoothScroll(target, 1200);
   });
 });
