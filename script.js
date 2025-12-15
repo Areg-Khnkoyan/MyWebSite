@@ -29,12 +29,16 @@ counters.forEach(counter => {
   update();
 });
 
-/* DARK MODE */
-const toggle = document.getElementById("darkToggle");
+const themeBtn = document.getElementById("themeToggle");
 
-toggle.addEventListener("change", () => {
+themeBtn.addEventListener("click", () => {
   document.body.classList.toggle("dark");
+  themeBtn.textContent = 
+    document.body.classList.contains("dark")
+    ? "☀️ Light Mode"
+    : "🌙 Dark Mode";
 });
+
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
