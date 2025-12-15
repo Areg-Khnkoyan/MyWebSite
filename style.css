@@ -1,13 +1,5 @@
-html {
-  scroll-behavior: smooth;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
-}
+html { scroll-behavior: smooth; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
 
 :root {
   --sdg8: #a21942;
@@ -28,7 +20,7 @@ body {
   transition: 0.4s;
 }
 
-/* DARK MODE BUTTON TOP-RIGHT */
+/* DARK MODE BUTTON */
 .top-right {
   position: fixed;
   top: 20px;
@@ -50,6 +42,7 @@ body {
 .secondary:hover {
   background: white;
   color: var(--sdg8);
+  transform: scale(1.1);
 }
 
 /* HERO */
@@ -73,25 +66,16 @@ body {
   color: white;
   text-align: center;
   z-index: 2;
+  animation: fadeUp 1s ease forwards;
 }
 
-.hero h1 {
-  font-size: 4rem;
-}
+.hero h1 { font-size: 4rem; }
+.hero p { margin: 10px 0 20px; }
 
-.hero p {
-  margin: 10px 0 20px;
-}
-
-.decor-circle {
-  width: 300px;
-  height: 300px;
-  background: var(--sdg8);
-  border-radius: 50%;
-  position: absolute;
-  bottom: -150px;
-  right: -150px;
-  opacity: 0.4;
+/* HERO ANIMATION */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 /* BUTTONS */
@@ -102,18 +86,12 @@ body {
   color: white;
   text-decoration: none;
   box-shadow: 0 0 20px rgba(162,25,66,0.6);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* SECTIONS */
-.section {
-  padding: 80px 20px;
-  max-width: 900px;
-  margin: auto;
-  text-align: center;
-}
-
-.placeholder {
-  opacity: 0.7;
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(162,25,66,0.8);
 }
 
 /* CARDS */
@@ -130,17 +108,23 @@ body {
   border-radius: 18px;
   text-align: center;
   box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-  transition: transform 0.4s;
+  transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-10px) rotate(-1deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .card img {
   width: 80px;
   margin-bottom: 15px;
-  border-radius: 15px; /* rounded corners */
+  border-radius: 15px;
+  transition: transform 0.5s;
+}
+
+.card img:hover {
+  transform: scale(1.1) rotate(-2deg);
 }
 
 /* STATS */
@@ -154,6 +138,11 @@ body {
 .stat h3 {
   font-size: 3rem;
   color: var(--sdg8);
+  transition: transform 0.3s;
+}
+
+.stat h3:hover {
+  transform: scale(1.2);
 }
 
 /* IMPACT */
@@ -180,6 +169,11 @@ body.dark .impact {
   padding: 25px;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.impact-box:hover {
+  transform: translateY(-10px) scale(1.03);
 }
 
 /* QUOTE */
