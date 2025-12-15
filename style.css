@@ -167,3 +167,39 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+/* IMPACT SECTION */
+.impact {
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #fbe4ec, #fff);
+  text-align: center;
+}
+
+body.dark .impact {
+  background: #1a1a1a;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+
+.impact-box {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* QUOTE */
+.quote {
+  padding: 80px 30px;
+  text-align: center;
+  font-style: italic;
+  font-size: 1.3rem;
+  background: var(--sdg8);
+  color: white;
+}
+
