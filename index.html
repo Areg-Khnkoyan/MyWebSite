@@ -2,65 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SDG 8 – Decent Work</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content fade-in">
-      <h1>SDG 8</h1>
-      <p>Decent Work & Economic Growth</p>
-      <button>Explore</button>
-    </div>
-  </section>
+<!-- DARK MODE TOGGLE -->
+<div class="toggle">
+  <label>
+    <input type="checkbox" id="darkToggle">
+    <span>🌙 Dark Mode</span>
+  </label>
+</div>
 
-  <!-- About Section -->
-  <section class="section slide-up">
-    <h2>About SDG 8</h2>
-    <p>
-      SDG 8 focuses on promoting inclusive and sustainable economic growth,
-      employment, and decent work for all.  
-      <span class="placeholder">[Add your content here]</span>
-    </p>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content reveal">
+    <h1>SDG 8</h1>
+    <p>Decent Work & Economic Growth</p>
+    <a href="#about" class="btn">Explore</a>
+  </div>
+  <div class="decor-circle"></div>
+</section>
 
-  <!-- Cards Section -->
-  <section class="cards">
+<!-- ABOUT -->
+<section id="about" class="section reveal">
+  <h2>About SDG 8</h2>
+  <p class="placeholder">
+    SDG 8 promotes sustained, inclusive and sustainable economic growth,
+    full and productive employment and decent work for all.
+    [Add your explanation here]
+  </p>
+</section>
 
-    <div class="card zoom-in">
-      <img src="images/placeholder1.png" alt="Work" />
-      <h3>Decent Work</h3>
-      <p>Fair wages, safe environments, and opportunities for everyone.</p>
-    </div>
+<!-- CARDS -->
+<section class="cards">
 
-    <div class="card zoom-in">
-      <img src="images/placeholder2.png" alt="Growth" />
-      <h3>Economic Growth</h3>
-      <p>Sustainable development that benefits communities globally.</p>
-    </div>
+  <div class="card reveal">
+    <img src="images/work.png" alt="Work">
+    <h3>Decent Work</h3>
+    <p>Safe conditions, fair income, and equal opportunity.</p>
+  </div>
 
-    <div class="card zoom-in">
-      <img src="images/placeholder3.png" alt="Innovation" />
-      <h3>Innovation</h3>
-      <p>Skills, creativity, and entrepreneurship drive progress.</p>
-    </div>
+  <div class="card reveal">
+    <img src="images/growth.png" alt="Growth">
+    <h3>Economic Growth</h3>
+    <p>Sustainable growth that benefits everyone.</p>
+  </div>
 
-  </section>
+  <div class="card reveal">
+    <img src="images/innovation.png" alt="Innovation">
+    <h3>Innovation</h3>
+    <p>Skills, creativity, and entrepreneurship.</p>
+  </div>
 
-  <!-- Call to Action -->
-  <section class="cta fade-in">
-    <h2>Get Involved</h2>
-    <p>[Add your message here]</p>
-    <button>Take Action</button>
-  </section>
+</section>
 
-  <footer>
-    <p>© 2025 SDG 8 Project</p>
-  </footer>
+<!-- STATS -->
+<section class="stats reveal">
+  <div class="stat">
+    <h3 class="counter" data-target="75">0</h3>
+    <p>% Employment Goal</p>
+  </div>
+  <div class="stat">
+    <h3 class="counter" data-target="2030">0</h3>
+    <p>Target Year</p>
+  </div>
+  <div class="stat">
+    <h3 class="counter" data-target="100">0</h3>
+    <p>Opportunities</p>
+  </div>
+</section>
 
+<!-- CTA -->
+<section class="cta reveal">
+  <h2>Take Action</h2>
+  <p>[Add how students or communities can help]</p>
+  <button class="btn">Get Involved</button>
+</section>
+
+<footer>
+  <p>© 2025 SDG 8 Project</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
