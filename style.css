@@ -47,6 +47,33 @@ body {
   overflow: hidden;
 }
 
+.card img, .hero img {
+  border-radius: 15px; /* adjust as needed */
+}
+.top-right {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Optional styling for the secondary button */
+.secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  box-shadow: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.secondary:hover {
+  background: white;
+  color: var(--sdg8);
+}
+
 .overlay {
   position: absolute;
   inset: 0;
