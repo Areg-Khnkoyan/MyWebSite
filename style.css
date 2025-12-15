@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -49,7 +50,7 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, rgba(162,25,66,0.7), rgba(0,0,0,0.7));
+  background: linear-gradient(45deg, rgba(162,25,66,0.75), rgba(0,0,0,0.75));
 }
 
 .hero-content {
@@ -84,14 +85,12 @@ body {
   background: var(--sdg8);
   color: white;
   text-decoration: none;
-  border: none;
-  cursor: pointer;
   box-shadow: 0 0 20px rgba(162,25,66,0.6);
 }
 
 /* SECTION */
 .section {
-  padding: 70px 20px;
+  padding: 80px 20px;
   max-width: 900px;
   margin: auto;
   text-align: center;
@@ -106,13 +105,13 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  padding: 60px 40px;
+  padding: 80px 40px;
 }
 
 .card {
   background: var(--card);
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 18px;
   text-align: center;
   box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   transition: transform 0.4s;
@@ -131,8 +130,8 @@ body {
 .stats {
   display: flex;
   justify-content: center;
-  gap: 40px;
-  padding: 60px 20px;
+  gap: 50px;
+  padding: 80px 20px;
 }
 
 .stat h3 {
@@ -140,37 +139,10 @@ body {
   color: var(--sdg8);
 }
 
-/* CTA */
-.cta {
-  background: linear-gradient(135deg, var(--sdg8), #6b0f2a);
-  color: white;
-  text-align: center;
-  padding: 70px 20px;
-}
-
-/* FOOTER */
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-/* REVEAL ANIMATION */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: 1s;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* IMPACT SECTION */
+/* IMPACT */
 .impact {
-  padding: 70px 20px;
-  background: linear-gradient(135deg, #fbe4ec, #fff);
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #fbe4ec, #ffffff);
   text-align: center;
 }
 
@@ -181,7 +153,7 @@ body.dark .impact {
 .impact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
+  gap: 30px;
   max-width: 900px;
   margin: 40px auto 0;
 }
@@ -195,11 +167,30 @@ body.dark .impact {
 
 /* QUOTE */
 .quote {
-  padding: 80px 30px;
+  padding: 90px 30px;
+  background: var(--sdg8);
+  color: white;
   text-align: center;
   font-style: italic;
   font-size: 1.3rem;
-  background: var(--sdg8);
-  color: white;
 }
 
+/* FOOTER */
+footer {
+  background: #111;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 1s;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
