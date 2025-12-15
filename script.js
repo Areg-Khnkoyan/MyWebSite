@@ -13,9 +13,7 @@ counters.forEach(counter => {
   const animate = () => {
     const target = +counter.dataset.target;
     let current = 0;
-    const duration = 2000; // 2 seconds
-    const stepTime = Math.abs(Math.floor(duration / target));
-
+    const duration = 2000;
     const step = () => {
       current += Math.ceil(target / 100);
       if (current > target) current = target;
