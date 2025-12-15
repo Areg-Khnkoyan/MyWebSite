@@ -1,5 +1,12 @@
-html { scroll-behavior: smooth; }
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", sans-serif; }
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
 
 :root {
   --sdg8: #a21942;
@@ -62,7 +69,7 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(45deg, rgba(162,25,66,0.75), rgba(0,0,0,0.75));
+  background: linear-gradient(45deg, rgba(162, 25, 66, 0.75), rgba(0, 0, 0, 0.75));
 }
 
 .hero-content {
@@ -72,13 +79,24 @@ body {
   animation: fadeUp 1s ease forwards;
 }
 
-.hero h1 { font-size: 4rem; }
-.hero h2 { font-size: 2rem; margin: 15px 0 25px; }
+.hero h1 {
+  font-size: 4rem;
+}
+.hero h2 {
+  font-size: 2rem;
+  margin: 15px 0 25px;
+}
 
 /* HERO ANIMATION */
 @keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* BUTTONS */
@@ -88,13 +106,13 @@ body {
   background: var(--sdg8);
   color: white;
   text-decoration: none;
-  box-shadow: 0 0 20px rgba(162,25,66,0.6);
+  box-shadow: 0 0 20px rgba(162, 25, 66, 0.6);
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(162,25,66,0.8);
+  box-shadow: 0 8px 25px rgba(162, 25, 66, 0.8);
 }
 
 /* CARDS */
@@ -111,13 +129,13 @@ body {
   padding: 30px;
   border-radius: 18px;
   text-align: center;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .hover-card:hover {
   transform: translateY(-10px) rotate(-1deg) scale(1.05);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .card img {
@@ -172,7 +190,7 @@ body.dark .impact {
   background: var(--card);
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s;
 }
 
@@ -180,33 +198,33 @@ body.dark .impact {
   transform: translateY(-10px) scale(1.03);
 }
 
-/* SUBTITLE DECORATIONS */
+/* SUBTITLE - centered with bubble decoration */
 .subtitle {
   position: relative;
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
   display: inline-block;
+  margin: 40px auto 30px auto;
+  font-size: 2rem;
+  text-align: center;
+  padding: 0 20px;
+  background: rgba(255, 175, 177, 0.3); /* soft pink bubble */
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(255, 175, 177, 0.4);
+  color: var(--text);
+  font-weight: 700;
   cursor: default;
+  transition: box-shadow 0.3s ease;
 }
 
+/* Hide old underline decoration */
 .subtitle-decor {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--decor);
-  animation: decorBounce 2s infinite alternate;
+  display: none;
 }
 
-@keyframes decorBounce {
-  0% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-5px); }
-  100% { transform: translateX(-50%) translateY(0); }
+/* Center container for subtitles */
+.section {
+  max-width: 900px;
+  margin: 0 auto 80px auto;
+  padding: 0 20px;
 }
 
 /* QUOTE */
@@ -219,12 +237,14 @@ body.dark .impact {
   font-size: 1.3rem;
 }
 
-/* FOOTER */
+/* Remove footer */
 footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 20px;
+  display: none;
+}
+
+/* Add bottom padding to last section for more white space */
+.section:last-of-type {
+  padding-bottom: 140px;
 }
 
 /* REVEAL */
@@ -248,11 +268,35 @@ footer {
   animation: floatY 8s ease-in-out infinite alternate;
 }
 
-.shape1 { width: 200px; height: 200px; background: var(--sdg8); top: 100px; left: 50px; }
-.shape2 { width: 150px; height: 150px; background: #f06292; top: 300px; right: 100px; }
-.shape3 { width: 100px; height: 100px; background: #ffab91; bottom: 150px; left: 200px; }
+.shape1 {
+  width: 200px;
+  height: 200px;
+  background: var(--sdg8);
+  top: 100px;
+  left: 50px;
+}
+
+.shape2 {
+  width: 150px;
+  height: 150px;
+  background: #f06292;
+  top: 300px;
+  right: 100px;
+}
+
+.shape3 {
+  width: 100px;
+  height: 100px;
+  background: #ffab91;
+  bottom: 150px;
+  left: 200px;
+}
 
 @keyframes floatY {
-  0% { transform: translateY(0px); }
-  100% { transform: translateY(-30px); }
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
 }
