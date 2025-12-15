@@ -29,6 +29,7 @@ counters.forEach(counter => {
   update();
 });
 
+/* DARK MODE BUTTON */
 const themeBtn = document.getElementById("themeToggle");
 
 themeBtn.addEventListener("click", () => {
@@ -39,13 +40,7 @@ themeBtn.addEventListener("click", () => {
     : "🌙 Dark Mode";
 });
 
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener("click", function(e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href"))
-      .scrollIntoView({ behavior: "smooth" });
-  });
-});
+/* SMOOTH SCROLL FOR ALL ANCHORS */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", function(e) {
     e.preventDefault();
