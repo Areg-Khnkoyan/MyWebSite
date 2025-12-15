@@ -28,28 +28,7 @@ body {
   transition: 0.4s;
 }
 
-/* TOGGLE */
-.toggle {
-  position: fixed;
-  top: 15px;
-  right: 20px;
-  z-index: 1000;
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  background: url("images/hero.jpg") center/cover no-repeat;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.card img, .hero img {
-  border-radius: 15px; /* adjust as needed */
-}
+/* DARK MODE BUTTON TOP-RIGHT */
 .top-right {
   position: fixed;
   top: 20px;
@@ -57,7 +36,6 @@ body {
   z-index: 1000;
 }
 
-/* Optional styling for the secondary button */
 .secondary {
   background: transparent;
   border: 2px solid white;
@@ -72,6 +50,17 @@ body {
 .secondary:hover {
   background: white;
   color: var(--sdg8);
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("images/hero.jpg") center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .overlay {
@@ -105,7 +94,7 @@ body {
   opacity: 0.4;
 }
 
-/* BUTTON */
+/* BUTTONS */
 .btn {
   padding: 12px 30px;
   border-radius: 30px;
@@ -115,7 +104,7 @@ body {
   box-shadow: 0 0 20px rgba(162,25,66,0.6);
 }
 
-/* SECTION */
+/* SECTIONS */
 .section {
   padding: 80px 20px;
   max-width: 900px;
@@ -151,6 +140,7 @@ body {
 .card img {
   width: 80px;
   margin-bottom: 15px;
+  border-radius: 15px; /* rounded corners */
 }
 
 /* STATS */
@@ -220,15 +210,4 @@ footer {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
-}
-.secondary {
-  margin-top: 15px;
-  background: transparent;
-  border: 2px solid white;
-  box-shadow: none;
-}
-
-.secondary:hover {
-  background: white;
-  color: var(--sdg8);
 }
