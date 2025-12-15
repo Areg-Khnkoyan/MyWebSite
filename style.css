@@ -54,6 +54,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  perspective: 2px; /* for subtle parallax */
 }
 
 .overlay {
@@ -70,7 +71,7 @@ body {
 }
 
 .hero h1 { font-size: 4rem; }
-.hero p { margin: 10px 0 20px; }
+.hero h2 { font-size: 2rem; margin: 15px 0 25px; }
 
 /* HERO ANIMATION */
 @keyframes fadeUp {
@@ -100,6 +101,7 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   padding: 80px 40px;
+  z-index: 1;
 }
 
 .card {
@@ -111,7 +113,7 @@ body {
   transition: transform 0.5s, box-shadow 0.5s;
 }
 
-.card:hover {
+.hover-card:hover {
   transform: translateY(-10px) rotate(-1deg) scale(1.05);
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
@@ -123,7 +125,7 @@ body {
   transition: transform 0.5s;
 }
 
-.card img:hover {
+.hover-card img:hover {
   transform: scale(1.1) rotate(-2deg);
 }
 
