@@ -205,3 +205,41 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* FLOATING SHAPES */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  z-index: 0;
+  animation: floatY 8s ease-in-out infinite alternate;
+}
+
+.shape1 {
+  width: 200px;
+  height: 200px;
+  background: var(--sdg8);
+  top: 100px;
+  left: 50px;
+}
+
+.shape2 {
+  width: 150px;
+  height: 150px;
+  background: #f06292;
+  top: 300px;
+  right: 100px;
+}
+
+.shape3 {
+  width: 100px;
+  height: 100px;
+  background: #ffab91;
+  bottom: 150px;
+  left: 200px;
+}
+
+@keyframes floatY {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-30px); }
+}
