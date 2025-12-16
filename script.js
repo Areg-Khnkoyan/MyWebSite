@@ -24,12 +24,28 @@ document.querySelector(".btn-explore").addEventListener("click", (e)=>{
 
 // Easing functions
 function easeOutQuad(t){ return t*(2-t); }
-function elasticEaseOut(t){
-  return Math.sin(-13*Math.PI/2*(t+1))*Math.pow(2, -10*t)+1;
-}
 
-// Animated counters with bounce at end
+// Animated counters with bounce and burst
 const counters = document.querySelectorAll(".counter");
+
+function createBurst(counter){
+  const burstCount = 8; // number of lines
+  for(let i=0; i<burstCount; i++){
+    const line = document.createElement("span");
+    line.classList.add("burst-line");
+    line.style.transform = `rotate(${i*45}deg)`; // distribute evenly
+    counter.appendChild(line);
+
+    // Animate line
+    setTimeout(()=>{
+      line.style.transform = `rotate(${i*45}deg) translateY(-40px)`;
+      line.style.opacity = "0";
+    },10);
+
+    // Remove after animation
+    setTimeout(()=> line.remove(), 600);
+  }
+}
 
 function animateCounter(counter){
   const target = +counter.getAttribute("data-target");
@@ -42,13 +58,16 @@ function animateCounter(counter){
     const easedProgress = easeOutQuad(progress);
     counter.textContent = Math.floor(easedProgress * target);
 
-    // Animate "pop" near end
     if(progress >= 1){
+      // bounce animation
       counter.style.transition = "transform 0.6s";
       counter.style.transform = "scale(1.2)";
       setTimeout(()=>{
         counter.style.transform = "scale(1)";
       },600);
+
+      // trigger burst
+      createBurst(counter);
     }
 
     if(progress < 1){
