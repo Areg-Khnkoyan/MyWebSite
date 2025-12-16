@@ -55,7 +55,7 @@ body { background:var(--bg); color:var(--text); transition: background 0.4s, col
   color:var(--sdg8); 
   display:inline-block; 
   transform-origin:center;
-  transition: transform 0.3s, color 0.5s, text-shadow 0.5s; 
+  transition: transform 0.3s, color 0.5s; 
   will-change: transform;
 }
 
