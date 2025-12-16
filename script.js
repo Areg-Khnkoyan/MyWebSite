@@ -22,24 +22,36 @@ document.querySelector(".btn-explore").addEventListener("click", (e)=>{
   requestAnimationFrame(animate);
 });
 
-// Animated counters with ease-out & pop
+// Animated counters with gradual slow-down
 const counters = document.querySelectorAll(".counter");
-function easeOutQuad(t){ return t*(2-t); }
+function easeOutQuad(t){ return t*(2-t); } // easing function for slow-down
+
 function animateCounter(counter){
   const target = +counter.getAttribute("data-target");
-  const duration = 2000;
+  const duration = 2000; // total animation duration
   const start = performance.now();
+
   function update(now){
     const elapsed = now-start;
-    const progress = Math.min(elapsed/duration,1);
-    counter.textContent = Math.floor(progress*easeOutQuad(progress)*target);
-    if(progress<1){
+    let progress = Math.min(elapsed/duration,1);
+    // Apply easing to gradually slow down
+    const easedProgress = easeOutQuad(progress);
+    counter.textContent = Math.floor(easedProgress * target);
+
+    // Add a subtle "pop" at the end without blocking hover
+    if(progress >= 1){
+      counter.style.transform = "scale(1.2)";
+      counter.style.transition = "transform 0.3s";
+      setTimeout(()=>{
+        counter.style.transform = "scale(1)";
+      },300);
+    }
+
+    if(progress < 1){
       requestAnimationFrame(update);
-    } else {
-      counter.textContent = target;
-      counter.classList.add("finished");
     }
   }
+
   requestAnimationFrame(update);
 }
 
