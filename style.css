@@ -51,10 +51,17 @@ body { background:var(--bg); color:var(--text); transition: background 0.4s, col
 .stats { padding:80px 20px; display:flex; justify-content:center; gap:50px; }
 .stat { text-align:center; }
 .stat h3 {
-  font-size:3rem; color:var(--sdg8); display:inline-block; transform-origin:center;
-  transition:transform 0.3s, color 0.5s, text-shadow 0.5s; will-change:transform;
+  font-size:3rem; 
+  color:var(--sdg8); 
+  display:inline-block; 
+  transform-origin:center;
+  transition: transform 0.3s, color 0.5s, text-shadow 0.5s; 
+  will-change: transform;
 }
-.stat h3:hover { transform:scale(1.2); }
+
+.stat h3:hover {
+  transform: scale(1.2);
+}
 .counter.finished { color:#ff6f91; text-shadow:0 0 10px #ff6f91; animation:pop 0.5s ease forwards; }
 @keyframes pop { 0%{transform:scale(1);} 50%{transform:scale(1.5);} 100%{transform:scale(1.3);} }
 
