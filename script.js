@@ -22,29 +22,33 @@ document.querySelector(".btn-explore").addEventListener("click", (e)=>{
   requestAnimationFrame(animate);
 });
 
-// Animated counters with gradual slow-down
+// Easing functions
+function easeOutQuad(t){ return t*(2-t); }
+function elasticEaseOut(t){
+  return Math.sin(-13*Math.PI/2*(t+1))*Math.pow(2, -10*t)+1;
+}
+
+// Animated counters with bounce at end
 const counters = document.querySelectorAll(".counter");
-function easeOutQuad(t){ return t*(2-t); } // easing function for slow-down
 
 function animateCounter(counter){
   const target = +counter.getAttribute("data-target");
-  const duration = 2000; // total animation duration
+  const duration = 2000; 
   const start = performance.now();
 
   function update(now){
     const elapsed = now-start;
-    let progress = Math.min(elapsed/duration,1);
-    // Apply easing to gradually slow down
+    const progress = Math.min(elapsed/duration,1);
     const easedProgress = easeOutQuad(progress);
     counter.textContent = Math.floor(easedProgress * target);
 
-    // Add a subtle "pop" at the end without blocking hover
+    // Animate "pop" near end
     if(progress >= 1){
+      counter.style.transition = "transform 0.6s";
       counter.style.transform = "scale(1.2)";
-      counter.style.transition = "transform 0.3s";
       setTimeout(()=>{
         counter.style.transform = "scale(1)";
-      },300);
+      },600);
     }
 
     if(progress < 1){
